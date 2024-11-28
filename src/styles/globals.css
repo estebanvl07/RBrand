@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "sf-pro-regular";
+  src: url("/fonts/sf-pro-display_regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf-pro-semibold";
+  src: url("/fonts/sf-pro-display_semibold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.scrollbar-customize::-webkit-scrollbar {
+  @apply h-[5px] w-1.5 rounded-full bg-default-300/30 dark:bg-default-200;
+}
+
+.scrollbar-y-customize::-webkit-scrollbar {
+  @apply h-[5px] w-1 bg-default-300 dark:bg-slate-800/80;
+}
+
+/* Track */
+.scrollbar-customize .scrollbar-y-customize::-webkit-scrollbar-track {
+  @apply rounded-full bg-black dark:bg-gray-900;
+}
+
+/* Handle */
+.scrollbar-customize::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary/70 transition-all duration-500 hover:bg-primary dark:!bg-white;
+}
