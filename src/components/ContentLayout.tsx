@@ -2,6 +2,7 @@ import React from "react";
 import ButtonHandlerTheme from "./ButtonHandlerTheme";
 import UserButton from "~/app/main/_components/UserButton";
 import GoBackBottom from "./GoBackBottom";
+import { HydrateClient } from "~/trpc/server";
 
 interface ContentLayoutProps {
   title?: string;
@@ -15,7 +16,7 @@ const ContentLayout = ({
   title,
 }: ContentLayoutProps) => {
   return (
-    <>
+    <HydrateClient>
       <header className="mb-4 flex items-center justify-between">
         <aside className="flex items-center gap-4">
           <GoBackBottom />
@@ -30,7 +31,7 @@ const ContentLayout = ({
         </aside>
       </header>
       {children}
-    </>
+    </HydrateClient>
   );
 };
 

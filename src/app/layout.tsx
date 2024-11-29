@@ -1,12 +1,12 @@
 import "~/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import Providers from "./_components/Providers";
 
 import { Ubuntu_Sans } from "next/font/google";
+import { Toaster } from "~/lib/context/Toaster.context";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -30,6 +30,7 @@ export default function RootLayout({
           <Providers>
             <div id="portal-root" />
             {children}
+            <Toaster />
           </Providers>
         </TRPCReactProvider>
       </body>

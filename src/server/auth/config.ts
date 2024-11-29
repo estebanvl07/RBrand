@@ -36,12 +36,13 @@ export const authConfig = {
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
     GithubProvider({
       clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET
-    })
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+      authorization: { params: { scope: "read:user user:email" } },
+    }),
     /**
      * ...add more providers here.
      *

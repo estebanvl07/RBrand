@@ -2,7 +2,7 @@ import { ColumnsProps } from "~/components/types/table.types";
 
 export const columns: ColumnsProps[] = [
   {
-    name: "MARCA",
+    name: "PRODUCTO",
     uid: "name",
   },
   {
@@ -10,15 +10,19 @@ export const columns: ColumnsProps[] = [
     uid: "description",
   },
   {
-    name: "ESTADO",
-    uid: "state",
+    name: "PRECIO",
+    uid: "price",
   },
   {
-    name: "TITULAR",
-    uid: "owner",
+    name: "STOCK",
+    uid: "stock",
   },
   {
-    name: "ACCIONES",
-    uid: "actions",
+    name: "IMAGENES",
+    uid: "images",
+  },
+  {
+    name: "MARCA",
+    uid: "brand",
   },
 ];

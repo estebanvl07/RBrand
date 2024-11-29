@@ -19,30 +19,14 @@ model Brand {
     owner       String
     name        String
     description String?
-    image       String?
-    state       Boolean @default(true)
     userId      String?
+    state       Boolean @default(true)
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    products Product[]
-    User     User?     @relation(fields: [userId], references: [id])
+    User        User?     @relation(fields: [userId], references: [id])
 }
 
-model Product {
-    id          String  @id @default(cuid())
-    name        String
-    price       String
-    image       String?
-    description String?
-    stock       String?
-    brandId     Int
-    userId      String
-
-    brand Brand @relation(fields: [brandId], references: [id])
-    user  User  @relation(fields: [userId], references: [id])
-}
 
 // Necessary for Next auth
 model Account {
@@ -81,7 +65,6 @@ model User {
     accounts      Account[]
     sessions      Session[]
     brands        Brand[]
-    Product       Product[]
 }
 
 model VerificationToken {

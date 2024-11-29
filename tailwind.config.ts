@@ -8,7 +8,7 @@ export default {
   content: [
     "./src/**/*.tsx",
     "./node_modules/@nextui-org/react/**/*.{js,ts,jsx,tsx},",
-    "./node_modules/@nextui-org/theme/dist/components/(avatar|button|input|modal|skeleton|table|tabs|user|ripple|spinner|checkbox|spacer).js"
+    "./node_modules/@nextui-org/theme/dist/components/(accordion|avatar|button|chip|input|modal|pagination|select|skeleton|table|tabs|popover|user|divider|ripple|spinner|listbox|scroll-shadow|checkbox|spacer).js"
   ],
   theme: {
     light: {

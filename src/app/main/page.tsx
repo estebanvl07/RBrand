@@ -1,18 +1,17 @@
-import React from "react";
-import { Button } from "@nextui-org/button";
-import { signOut } from "next-auth/react";
 import { HydrateClient } from "~/trpc/server";
-import { Table } from "~/components";
+
+import ContentLayout from "~/components/ContentLayout";
+import AllBrandsTable from "./_components/AllBrandTable";
 
 const MainPage = () => {
   return (
     <HydrateClient>
-      mainnnn
-      {/* <Table
-        data={[]}
-        headerConfig={{}}
-        columns={[{ uid: "nn", name: "Nombre" }]}
-      /> */}
+      <ContentLayout
+        title="Exlora Marcas"
+        description="Mira todas las marcas creadas por los usuarios"
+      >
+        <AllBrandsTable />
+      </ContentLayout>
     </HydrateClient>
   );
 };

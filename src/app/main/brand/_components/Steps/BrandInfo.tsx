@@ -34,7 +34,6 @@ const BrandInfo = ({
 
   useEffect(() => {
     if (formData) {
-      console.log(formData);
       formData.name && setValue("name", formData.name);
       formData.description && setValue("description", formData.description);
     }
@@ -48,6 +47,7 @@ const BrandInfo = ({
       <Input
         label="Nombre"
         placeholder="Nombre de tu marca"
+        defaultValue={formData.name}
         isInvalid={Boolean(errors.name?.message)}
         errorMessage={errors.name?.message}
         {...register("name")}
@@ -57,6 +57,7 @@ const BrandInfo = ({
       <Textarea
         placeholder="Descripcion de tu marca"
         label="Descripción"
+        defaultValue={formData.description}
         isInvalid={Boolean(errors.description?.message)}
         errorMessage={errors.description?.message}
         {...register("description")}

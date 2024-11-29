@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Tooltip } from "@nextui-org/react";
+import { Link } from "next-view-transitions";
 
 interface ActionsProps {
   detailText?: string;
@@ -8,6 +9,7 @@ interface ActionsProps {
   hasEdit?: boolean;
   hasDelete?: boolean;
   children?: React.ReactNode;
+  viewHref?: string;
   hasView?: boolean;
   onClickView?: () => void;
   onClickEdit?: () => void;
@@ -22,22 +24,25 @@ const Actions = ({
   hasDelete = true,
   hasView = true,
   children,
+  viewHref,
   onClickView,
   onClickEdit,
   onClickDelete,
 }: ActionsProps) => {
   return (
-    <div className="relative flex items-center gap-2">
+    <div className="relative flex items-center justify-center gap-2">
       {children}
       {hasView && (
-        <Tooltip content={detailText} className="font-montserrat">
-          <span
-            className="cursor-pointer text-lg text-default-400 active:opacity-50"
-            onClick={onClickView}
-          >
-            <Icon icon="ph:eye" width={24} />
-          </span>
-        </Tooltip>
+        <Link href={viewHref ?? "#"}>
+          <Tooltip content={detailText} className="font-montserrat">
+            <span
+              className="cursor-pointer text-lg text-default-400 active:opacity-50"
+              onClick={onClickView}
+            >
+              <Icon icon="ph:eye" width={24} />
+            </span>
+          </Tooltip>
+        </Link>
       )}
       {hasEdit && (
         <Tooltip content={editText} className="font-montserrat">

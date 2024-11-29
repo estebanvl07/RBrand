@@ -17,6 +17,7 @@ export interface DialogProps {
 export interface createDialogFormProps {
   isOpen: boolean;
   onClose: () => void;
+  onCompleted: () => void;
 }
 
 export interface EditDialogFormProps<T> {

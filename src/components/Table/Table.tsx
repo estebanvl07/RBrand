@@ -131,7 +131,7 @@ const DataTable = <T,>({
             {({ uid, align, sorting, name }) => (
               <TableColumn
                 key={uid}
-                align={align ?? "end"}
+                align={align ?? "start"}
                 allowsSorting={sorting}
               >
                 {name}

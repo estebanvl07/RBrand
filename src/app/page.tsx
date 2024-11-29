@@ -1,7 +1,9 @@
 import { HydrateClient } from "~/trpc/server";
-import SignInOptions from "./_components/SignInOptions";
-import { Link } from "next-view-transitions";
+
 import Image from "next/image";
+import { Link } from "next-view-transitions";
+
+import SignInOptions from "./_components/SignInOptions";
 
 export default function Home() {
   return (

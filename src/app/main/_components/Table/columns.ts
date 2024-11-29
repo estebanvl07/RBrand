@@ -2,6 +2,10 @@ import { ColumnsProps } from "~/components/types/table.types";
 
 export const columns: ColumnsProps[] = [
   {
+    uid: "id",
+    name: "ID",
+  },
+  {
     name: "MARCA",
     uid: "name",
   },
@@ -14,8 +18,12 @@ export const columns: ColumnsProps[] = [
     uid: "state",
   },
   {
-    name: "TITULAR",
+    name: "OWNER",
     uid: "owner",
+  },
+  {
+    name: "FECHA DE CREACIÓN",
+    uid: "createdAt",
   },
   {
     name: "ACCIONES",

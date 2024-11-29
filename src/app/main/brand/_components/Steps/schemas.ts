@@ -27,13 +27,16 @@ export type CreateOwnerSchema = z.infer<typeof createOwnerSchema>;
 export const updateOwnerSchema = updateSchema(createOwner);
 export type UpdateOwnerSchema = z.infer<typeof updateOwnerSchema>;
 
-// IMAGE SCHEMA
-
-const createImage = {
-  image: z.array(Z_STRING),
+const input = {
+  name: Z_STRING.min(3, "Debe contener minimo 3 caracteres"),
+  description: z
+    .string()
+    .max(255, "La descripción no contenter más de 255 caracteres")
+    .optional(),
+  owner: Z_STRING.min(3, "Debe contener minimo 3 caracteres"),
 };
 
-export const createImageSchema = z.object(createImage);
-export type CreateImageSchema = z.infer<typeof createImageSchema>;
-export const updateImageSchema = updateSchema(createImage);
-export type UpdateImageSchema = z.infer<typeof updateImageSchema>;
+export const inputCreateBrandSchema = z.object(input);
+export type InputCreateBrandSchema = z.infer<typeof inputCreateBrandSchema>;
+export const inputUpdateBrandSchema = updateSchema(input);
+export type InputUpdateBrandSchema = z.infer<typeof inputUpdateBrandSchema>;

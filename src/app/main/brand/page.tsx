@@ -1,5 +1,4 @@
 import React from "react";
-import CreateBrand from "./_components/CreateBrand";
 import { StepperProvider } from "~/components/contexts/StepperProvider";
 import { HydrateClient } from "~/trpc/server";
 import BrandTable from "./_components/BrandTable";
@@ -9,8 +8,8 @@ const BrandPage = () => {
   return (
     <HydrateClient>
       <ContentLayout
-        title="Mis Cuentas"
-        description="Lista de todas mis marcas"
+        title="Mis Marcas"
+        description="Registra todas tus marcas para que los usuarios te conozcan"
       >
         <StepperProvider>
           <BrandTable />

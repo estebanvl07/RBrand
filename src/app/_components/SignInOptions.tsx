@@ -1,10 +1,13 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
 import React from "react";
-import { GithubIcon, GoogleIcon } from "~/components/Icones";
-import { signIn } from "next-auth/react";
+
+import { Button } from "@nextui-org/react";
+import { Icon } from "@iconify/react/dist/iconify.js";
+
 import { CALLBACK_SIGN_IN_URL } from "~/lib/constants/enviroment";
+
+import { signIn } from "next-auth/react";
 import { useThemeContext } from "~/lib/context/Theme.context";
 
 const SignInOptions = () => {
@@ -33,7 +36,11 @@ const SignInOptions = () => {
         color="primary"
         fullWidth
       >
-        <GoogleIcon color={isDark ? "black" : "white"} width="20" />
+        <Icon
+          icon="prime:google"
+          color={isDark ? "text-black" : "text-white"}
+          width="24"
+        />
         Iniciar con Google
       </Button>
       <Button
@@ -42,7 +49,11 @@ const SignInOptions = () => {
         color="primary"
         fullWidth
       >
-        <GithubIcon color={isDark ? "black" : "white"} width="20" />
+        <Icon
+          icon="mdi:github"
+          className={isDark ? "text-black" : "text-white"}
+          width="24"
+        />
         Iniciar con Gihub
       </Button>
     </div>

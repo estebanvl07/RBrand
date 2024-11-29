@@ -21,23 +21,25 @@ export const options: Options[] = [
       },
       {
         url: "/main/brand",
-        name: "Marca",
+        name: "Marcas",
         icon: "tabler:brand-adobe-xd",
       },
       {
         url: "/main/products",
-        name: "Productos",
+        name: "Mis Productos",
         icon: "fluent-mdl2:product",
+        active: false,
       },
     ],
   },
   {
-    name: "config",
+    name: "Ajustes",
     routes: [
       {
         url: "/main/profile",
         name: "Perfil",
         icon: "iconamoon:profile-circle",
+        active: false,
       },
       {
         url: "/main/setting",

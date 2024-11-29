@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/button";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 import { type TopContentProps } from "~/components/types/table.types";
+import clsx from "clsx";
 
 const TopContent = React.memo(
   ({
@@ -43,13 +44,19 @@ const TopContent = React.memo(
 
     return (
       <>
-        <header className="flex flex-col justify-between gap-4">
+        <header
+          className={clsx("flex flex-col justify-between gap-4", {
+            "!items-end": !hasNew,
+          })}
+        >
           <div className="flex items-center justify-between">
             {hasSearch && (
               <Input
                 placeholder={inputPlaceholder}
                 startContent={<Icon icon="iconoir:search" width={18} />}
-                className="!w-[40%]"
+                className={clsx("!w-[40%]", {
+                  "!w-full": !hasNew,
+                })}
                 classNames={{
                   inputWrapper: "border dark:border-white/10",
                 }}
