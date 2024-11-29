@@ -31,7 +31,7 @@ const DetailBrandPage = async ({ params }: PageProps) => {
         title="Detalle de Marca"
         description={brand.owner || "Anonimo"}
       >
-        <header className="flex items-center justify-between">
+        <header className="flex flex-col items-start justify-start gap-3 md:flex-row md:items-center md:justify-between">
           <User
             name={brand?.name}
             description={brand?.User?.name}
@@ -50,7 +50,7 @@ const DetailBrandPage = async ({ params }: PageProps) => {
           />
           {<DetailActions brand={brand as BrandWithIncludes} />}
         </header>
-        <ul className="mt-4 grid max-w-3xl grid-cols-2 gap-y-2 [&>li>span]:font-semibold [&>li]:flex [&>li]:flex-col [&>li]:items-start [&>li]:gap-x-2">
+        <ul className="mt-4 grid max-w-3xl gap-y-2 md:grid-cols-2 [&>li>span]:font-semibold [&>li]:flex [&>li]:flex-col [&>li]:items-start [&>li]:gap-x-2">
           <li>
             <span>Marca :</span>
             <p>{brand.name}</p>

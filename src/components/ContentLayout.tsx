@@ -3,6 +3,7 @@ import { HydrateClient } from "~/trpc/server";
 import ButtonHandlerTheme from "./ButtonHandlerTheme";
 import UserButton from "~/app/main/_components/UserButton";
 import GoBackBottom from "./GoBackBottom";
+import LogoutButton from "~/app/main/_components/LogoutButton";
 
 interface ContentLayoutProps {
   title?: string;
@@ -22,11 +23,12 @@ const ContentLayout = ({
           <GoBackBottom />
           <div>
             <h4 className="text-2xl font-bold">{title}</h4>
-            <span className="text-base">{description}</span>
+            <span className="hidden text-base md:block">{description}</span>
           </div>
         </aside>
         <aside className="flex items-center gap-3">
           <ButtonHandlerTheme />
+          <LogoutButton />
           <UserButton />
         </aside>
       </header>

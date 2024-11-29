@@ -11,13 +11,15 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { User } from "@nextui-org/user";
 import { BrandWithIncludes } from "../_types/root";
-import { useSession } from "next-auth/react";
 import { api } from "~/trpc/react";
+import BrandList from "./BrandList";
+import { useResize } from "~/hooks/useResize";
 
 const AllBrandTable = () => {
   const [isClient, setIsClient] = useState(false);
   const { data: brandsExplore, isLoading } = api.brand.explore.useQuery();
-  const { data: session } = useSession();
+
+  const { isDesktop } = useResize();
 
   const renderCell = useCallback(
     (brand: BrandWithIncludes, columnKey: React.Key) => {
@@ -73,7 +75,6 @@ const AllBrandTable = () => {
           return (
             <Actions
               viewHref={`/main/brand/${brand.id}`}
-              // onClickView={() => router.push()}
               hasEdit={false}
               hasDelete={false}
             />
@@ -91,17 +92,23 @@ const AllBrandTable = () => {
 
   return (
     <>
-      {isClient && (
-        <Table
-          data={brandsExplore || []}
-          isLoading={isLoading}
-          filterKeys={["owner", "name"]}
-          headerConfig={{
-            hasNew: false,
-          }}
-          renderCell={renderCell}
-          columns={columns}
-        />
+      {isDesktop ? (
+        <>
+          {isClient && (
+            <Table
+              data={brandsExplore || []}
+              isLoading={isLoading}
+              filterKeys={["owner", "name"]}
+              headerConfig={{
+                hasNew: false,
+              }}
+              renderCell={renderCell}
+              columns={columns}
+            />
+          )}
+        </>
+      ) : (
+        <BrandList />
       )}
     </>
   );
