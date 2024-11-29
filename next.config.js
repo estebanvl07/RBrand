@@ -5,6 +5,10 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  env: {
+    AUTH_SECRET: process.env.AUTH_SECRET,
+  },
+};
 
 export default config;
