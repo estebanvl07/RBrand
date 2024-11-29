@@ -1,18 +1,19 @@
-import React from "react";
-
 import { redirect } from "next/navigation";
 
 import { User } from "@nextui-org/user";
 import { Chip } from "@nextui-org/chip";
+
 import ContentLayout from "~/components/ContentLayout";
+import DetailActions from "./_components/DetailActions";
 
 import { api } from "~/trpc/server";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import clsx from "clsx";
-import DetailActions from "./_components/DetailActions";
-import { BrandWithIncludes } from "../../_types/root";
+
 import { StepperProvider } from "~/components/contexts/StepperProvider";
+
+import type { BrandWithIncludes } from "../../_types/root";
 
 interface PageProps {
   params: { id: string };

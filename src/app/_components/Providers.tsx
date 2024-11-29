@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { NextUIProvider } from "@nextui-org/react";
 import { ViewTransitions } from "next-view-transitions";
 import { SessionProvider } from "next-auth/react";

@@ -30,7 +30,7 @@ export const useSearch = <T>({ data, keys }: Props<T>) => {
 
     const filtered = data?.filter((item: any) => {
       const isMatch = keys.map((key) => {
-        // valida por keys
+        // validate by key
         if (typeof item[key] === "string") {
           return (
             item[key] && item[key].toLowerCase().includes(param.toLowerCase())
@@ -39,7 +39,7 @@ export const useSearch = <T>({ data, keys }: Props<T>) => {
         return String(item[key]).includes(param);
       });
 
-      // verifica que por lo menos una de las keys haga match
+      // min one do match
       const match = isMatch.some((booleano) => booleano === true);
 
       if (match) return item;

@@ -1,4 +1,5 @@
 "use client";
+
 import { Step } from "./types/stepper.types";
 
 export interface StepperProps {
@@ -12,9 +13,8 @@ const Stepper: React.FC<StepperProps> = ({
 }: StepperProps) => {
   return (
     <div className="mx-auto w-full">
-      {/* Stepper Navigation */}
       <div className="mb-4 flex items-center justify-between">
-        {steps.map((step, index) => (
+        {steps.map((_, index) => (
           <div
             key={index}
             className={`mx-1 h-2 flex-1 rounded-full ${

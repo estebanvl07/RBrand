@@ -7,13 +7,12 @@ import {
 import { z } from "zod";
 
 export const brandRouter = createTRPCRouter({
-  explore: protectedProcedure.query(async ({ ctx, input }) => {
+  explore: protectedProcedure.query(async ({ ctx }) => {
     return BrandServices.getBrands(ctx.db);
   }),
   getBrandById: protectedProcedure
     .input(z.number())
     .query(async ({ ctx, input }) => {
-      const userId = ctx.session.user.id;
       return BrandServices.getBrandById(ctx.db, input);
     }),
   myBrands: protectedProcedure.query(async ({ ctx }) => {

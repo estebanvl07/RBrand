@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import { FormEvent } from "react";
 import { StepOptionProps } from "./types";
 import { useStepper } from "~/components/contexts/StepperProvider";
 import { Button } from "@nextui-org/button";
@@ -9,9 +9,7 @@ import { toast } from "sonner";
 
 const Completed = ({
   currentStep,
-  onClose,
   goBack,
-  goNext,
   onEnd,
   maxStep,
 }: StepOptionProps<any>) => {

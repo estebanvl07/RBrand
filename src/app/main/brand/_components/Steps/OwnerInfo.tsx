@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Input } from "@nextui-org/input";
 
 import { useForm } from "react-hook-form";
@@ -10,7 +10,6 @@ import { CreateOwnerSchema, createOwnerSchema } from "./schemas";
 import type { StepOptionProps } from "./types";
 import { Button } from "@nextui-org/button";
 import { useStepper } from "~/components/contexts/StepperProvider";
-import { CreateBrandInput } from "../types";
 
 const OwnerInfo = ({
   goBack,

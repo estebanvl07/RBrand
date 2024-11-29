@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import CustomDrawer from "./CustomDrawer";
 import Sheet from "./Sheet";
 

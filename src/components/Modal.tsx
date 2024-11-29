@@ -1,12 +1,9 @@
-import React from "react";
 import {
   Modal as ModalLayout,
   ModalContent,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
-  useDisclosure,
 } from "@nextui-org/react";
 
 interface ModalProps {
@@ -37,7 +34,7 @@ const Modal = ({
       onClose={onClose}
     >
       <ModalContent>
-        {(onClose) => (
+        {() => (
           <>
             <ModalHeader className="font-montserrat mb-0 flex flex-col gap-1 pb-0">
               <h2>{title ?? "Crear"}</h2>

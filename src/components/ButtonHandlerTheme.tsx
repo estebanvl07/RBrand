@@ -12,7 +12,12 @@ const ButtonHandlerTheme = ({ className }: { className?: string }) => {
   };
 
   return (
-    <Button isIconOnly radius="full" onClick={toggleTheme}>
+    <Button
+      isIconOnly
+      radius="full"
+      className={className}
+      onClick={toggleTheme}
+    >
       {theme === "dark" ? (
         <Icon
           icon="akar-icons:sun-fill"

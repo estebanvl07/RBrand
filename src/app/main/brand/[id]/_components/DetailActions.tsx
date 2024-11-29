@@ -1,16 +1,18 @@
 "use client";
 
 import { Button } from "@nextui-org/button";
-import { useSession } from "next-auth/react";
-import React from "react";
-import { BrandWithIncludes } from "~/app/main/_types/root";
-import useShowForm from "~/hooks/useShowForm";
 import EditBrand from "../../_components/EditBrand";
-import { api } from "~/trpc/react";
+
+import useShowForm from "~/hooks/useShowForm";
+
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { api } from "~/trpc/react";
+import { useSession } from "next-auth/react";
 
 import { useMyBrandsContext } from "../../_contexts/Brands";
+
+import type { BrandWithIncludes } from "~/app/main/_types/root";
 
 const DetailActions = ({ brand }: { brand: BrandWithIncludes }) => {
   const { onShowEdit, showEdit, onCloseEdit } = useShowForm<BrandWithIncludes>({
@@ -26,7 +28,7 @@ const DetailActions = ({ brand }: { brand: BrandWithIncludes }) => {
   const onDeleteBrand = () => {
     toast.promise(
       DeleteBrandMutation(brand.id, {
-        onSuccess(data) {
+        onSuccess() {
           refreshBrands();
           router.back();
         },

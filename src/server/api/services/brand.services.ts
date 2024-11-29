@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma, type PrismaClient } from "@prisma/client";
 
 export async function getBrands(db: PrismaClient) {
   return db.brand.findMany({ where: { state: true }, include: { User: true } });
@@ -26,7 +26,7 @@ export async function createBrand(
     });
     return brand;
   } catch (error) {
-    throw new Error("Error al crear la marca, intent de nuevo");
+    throw new Error(`Error: ${error}`);
   }
 }
 
@@ -42,7 +42,7 @@ export async function updateBrand(
     });
     return brand;
   } catch (error) {
-    throw new Error("Error al crear la marca, intent de nuevo");
+    throw new Error(`Error: ${error}`);
   }
 }
 
@@ -55,6 +55,6 @@ export async function deleteBrand(
     const brand = await db.brand.delete({ where: { id: brandId, userId } });
     return brand;
   } catch (error) {
-    return error;
+    throw new Error(`Error: ${error}`);
   }
 }

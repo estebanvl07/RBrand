@@ -1,8 +1,8 @@
-import React from "react";
+import { HydrateClient } from "~/trpc/server";
+
 import ButtonHandlerTheme from "./ButtonHandlerTheme";
 import UserButton from "~/app/main/_components/UserButton";
 import GoBackBottom from "./GoBackBottom";
-import { HydrateClient } from "~/trpc/server";
 
 interface ContentLayoutProps {
   title?: string;
