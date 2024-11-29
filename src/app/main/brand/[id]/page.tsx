@@ -16,11 +16,11 @@ import { StepperProvider } from "~/components/contexts/StepperProvider";
 import type { BrandWithIncludes } from "../../_types/root";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const DetailBrandPage = async ({ params }: PageProps) => {
-  const { id } = params;
+  const { id } = await params;
   const brand = await api.brand.getBrandById(Number(id));
 
   if (!brand) redirect("/main");

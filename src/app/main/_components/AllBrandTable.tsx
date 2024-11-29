@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Table } from "~/components";
 import { columns } from "./Table/columns";
-import { useBrandsExplore } from "../brand/_hooks/useBrandsExplore";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Chip } from "@nextui-org/chip";
 import clsx from "clsx";
