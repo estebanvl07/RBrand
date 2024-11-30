@@ -19,13 +19,6 @@ const SignInOptions = () => {
     });
   };
 
-  const onSignWithGithub = () => {
-    signIn("github", {
-      redirect: false,
-      redirectTo: CALLBACK_SIGN_IN_URL,
-    });
-  };
-
   return (
     <div className="flex w-full flex-col gap-1">
       <Button
@@ -40,19 +33,6 @@ const SignInOptions = () => {
           width="24"
         />
         Iniciar con Google
-      </Button>
-      <Button
-        onClick={onSignWithGithub}
-        className="flex items-center gap-3"
-        color="primary"
-        fullWidth
-      >
-        <Icon
-          icon="mdi:github"
-          className={isDark ? "text-black" : "text-white"}
-          width="24"
-        />
-        Iniciar con Gihub
       </Button>
     </div>
   );
