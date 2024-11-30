@@ -27,7 +27,7 @@ export default function Home() {
           <div className="m-auto flex max-w-xl flex-col items-center justify-center">
             <h1 className="py-10 text-2xl font-semibold md:hidden">RBrand</h1>
             <h2 className="text-3xl font-bold">¡Quiero Iniciar!</h2>
-            <p className="mb-4">Inica sisión con alguna de éstas opciones</p>
+            <p className="mb-4">Inica sesión con alguna de éstas opciones</p>
             <SignInOptions />
             <Link
               href={"https://viloriaj-dev.netlify.app/"}
