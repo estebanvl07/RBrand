@@ -6,6 +6,7 @@ import { useStepper } from "~/components/contexts/StepperProvider";
 import { Button } from "@nextui-org/button";
 import { api } from "~/trpc/react";
 import { toast } from "sonner";
+import { useSession } from "next-auth/react";
 
 const Completed = ({
   currentStep,
@@ -16,9 +17,14 @@ const Completed = ({
   const { formData, setFormData, isEdit, defaultBrand } = useStepper();
   const { mutateAsync: CreateBrandMutation } = api.brand.create.useMutation();
   const { mutateAsync: UpdateBrandMutation } = api.brand.update.useMutation();
+  const { data: session } = useSession();
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!session?.user) {
+      toast.info("Necesita loguearse para poder crear una marca");
+      return;
+    }
     if (isEdit) {
       if (!defaultBrand) return;
       const payload = { ...formData, id: String(defaultBrand.id) };

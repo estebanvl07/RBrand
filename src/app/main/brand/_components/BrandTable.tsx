@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Table } from "~/components";
 import { useOnActive } from "~/hooks/useOnActive";
 import { User } from "@nextui-org/user";
-import { Chip, Tooltip } from "@nextui-org/react";
+import { Button, Chip, Tooltip } from "@nextui-org/react";
 import CreateBrand from "./CreateBrand";
 import Actions from "~/components/Table/Actions";
 
@@ -20,11 +20,19 @@ import { useMyBrandsContext } from "../_contexts/Brands";
 import { columns } from "./Table/columns";
 
 import type { BrandWithIncludes } from "../../_types/root";
+import { useSession } from "next-auth/react";
+import Modal from "~/components/Modal";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BrandTable = () => {
+  const [adv, setAdv] = useState<boolean>(false);
   const { isActive, onActive, onDisabled } = useOnActive();
   const { brands, isLoading, refreshBrands } = useMyBrandsContext();
   const { setIsEdit } = useStepper();
+
+  const router = useRouter();
+  const { data: session } = useSession();
 
   const { mutateAsync: DeleteBrandMutation } = api.brand.delete.useMutation();
 
@@ -108,6 +116,16 @@ const BrandTable = () => {
     [brands],
   );
 
+  const onGoBack = () => {
+    router.back();
+  };
+
+  useEffect(() => {
+    if (session?.user) {
+      setAdv(true);
+    }
+  }, [adv, session]);
+
   return (
     <div>
       <Table
@@ -131,6 +149,24 @@ const BrandTable = () => {
         isOpen={isActive}
         onClose={onDisabled}
       />
+      {!session?.user && (
+        <Modal
+          isOpen={!adv}
+          backdrop="opaque"
+          onClose={() => {}}
+          title="Advertencia"
+          footerContent={
+            <div className="flex items-center gap-2">
+              <Button onClick={onGoBack}>Volver</Button>
+              <Button color="primary" as={Link} href="/">
+                Registrarme
+              </Button>
+            </div>
+          }
+        >
+          <p>Para poder ver tus marcas debes registrarte primaro</p>
+        </Modal>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import * as BrandServices from "../services/brand.services";
 import {
   inputCreateBrandSchema,
@@ -7,10 +7,10 @@ import {
 import { z } from "zod";
 
 export const brandRouter = createTRPCRouter({
-  explore: protectedProcedure.query(async ({ ctx }) => {
+  explore: publicProcedure.query(async ({ ctx }) => {
     return BrandServices.getBrands(ctx.db);
   }),
-  getBrandById: protectedProcedure
+  getBrandById: publicProcedure
     .input(z.number())
     .query(async ({ ctx, input }) => {
       return BrandServices.getBrandById(ctx.db, input);
