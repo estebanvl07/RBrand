@@ -164,7 +164,7 @@ const BrandTable = () => {
             </div>
           }
         >
-          <p>Para poder ver tus marcas debes registrarte primaro</p>
+          <p>Para poder ver tus marcas debes registrarte primero</p>
         </Modal>
       )}
     </div>
